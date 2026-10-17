@@ -1,0 +1,6 @@
+-r requirements.txt
+docopt
+flake8
+isort
+babel
+pyinstaller

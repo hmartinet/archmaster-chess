@@ -1,0 +1,9 @@
+.venv
+.vscode
+/user_data
+__pycache__
+*.pyc
+*.mo
+/build
+/dist
+/*.spec
