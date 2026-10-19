@@ -23,8 +23,17 @@ class ChessGame(QObject):
     current_node_changed = Signal()
     tree_changed = Signal()
 
-    def __init__(self, pgn: str | None = None):
+    def __init__(self):
         super().__init__()
+
+        self.game = chess.pgn.Game()
+
+        self.current_node = self.game
+        self.node_index = {}
+
+        self.white_oriented = True
+
+    def load_pgn(self, pgn: str):
         self.game = (
             chess.pgn.read_game(io.StringIO(pgn)) if pgn
             else chess.pgn.Game()
@@ -36,6 +45,8 @@ class ChessGame(QObject):
         self.node_index = {}
 
         self.white_oriented = True
+        self.tree_changed.emit()
+        self.current_node_changed.emit()
 
     @property
     def board(self):

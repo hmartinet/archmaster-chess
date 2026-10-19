@@ -3,3 +3,5 @@ python-chess>=1.999,<2
 qt-material-icons
 appdirs
 pyyaml
+sqlalchemy
+patool
